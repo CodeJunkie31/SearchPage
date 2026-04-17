@@ -6,6 +6,7 @@ type Product = {
   title: string;
   price: number;
   category: string;
+  thumbnail: string;
 };
 
 function SearchResults() {
@@ -23,19 +24,35 @@ function SearchResults() {
   }, [q]);
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <h2>Showing results for: {q}</h2>
 
       {results.length === 0 ? (
         <p>No results found.</p>
       ) : (
-        results.map((product) => (
-          <div key={product.id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-            <h3>{product.title}</h3>
-            <p>Price: ${product.price}</p>
-            <p>Category: {product.category}</p>
-          </div>
-        ))
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+          {results.map((product) => (
+            <div
+              key={product.id}
+              style={{
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+                padding: "15px",
+                width: "200px",
+                textAlign: "center",
+              }}
+            >
+              <img
+                src={product.thumbnail}
+                alt={product.title}
+                style={{ width: "100%", height: "150px", objectFit: "contain" }}
+              />
+              <h3 style={{ fontSize: "14px" }}>{product.title}</h3>
+              <p>Price: ${product.price}</p>
+              <p>Category: {product.category}</p>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
