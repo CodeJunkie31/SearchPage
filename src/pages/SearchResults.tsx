@@ -48,7 +48,7 @@ function SearchResults() {
                 style={{ width: "100%", height: "150px", objectFit: "contain" }}
               />
               <h3 style={{ fontSize: "14px" }}>{product.title}</h3>
-              <p>Price: ${product.price}</p>
+              <p>Price: R{product.price}</p>
               <p>Category: {product.category}</p>
             </div>
           ))}
