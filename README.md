@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Search Results Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
+This project is a React TypeScript application built with Vite. The goal of this task was to create a Search Results page that accepts a search query through the URL, fetches matching products from an external API, and displays them in a clean card layout.
 
-Currently, two official plugins are available:
+## Task Goal
+The task required building a `SearchResults` page that:
+- Accepts a query parameter `q` from the URL (e.g. `/search?q=phone`)
+- Fetches matching products from DummyJSON API on page mount using `useEffect`
+- Displays the message "Showing results for: {q}"
+- Shows each product's Title, Price and Category
+- Maps to a `/search` route using React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- React
+- TypeScript
+- Vite
+- React Router DOM
+- DummyJSON API
 
-## React Compiler
+## How To Run The Project
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm run dev`
+4. Open your browser and go to:
+http://localhost:5173/search?q=lipstick
+You can replace `lipstck` with any search term.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
+   src/
+├── pages/
+│   └── SearchResults.tsx
+├── App.tsx
+└── main.tsx
 
-## Expanding the ESLint configuration
+## Concepts Used
+- `useEffect` — to fetch data when the page loads
+- `useState` — to store the list of products
+- `useSearchParams` — to read the `q` query parameter from the URL
+- React Router `BrowserRouter`, `Routes`, `Route` — to set up the `/search` route
+- TypeScript types — to define the shape of the product data
+- Fetch API — to get data from DummyJSON
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## References
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+React Training (2024). *React Router: Declarative Routing for React*. [online] Available at: https://reactrouter.com [Accessed 17 April 2026].
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Microsoft (2024). *TypeScript: JavaScript with syntax for types*. [online] Available at: https://www.typescriptlang.org [Accessed 17 April 2026].
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+React Training (2024). *useSearchParams hook documentation and usage examples*. [online] Available at: https://reactrouter.com/en/main/hooks/use-search-params [Accessed 15 April 2026].
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Stack Overflow (2024). *How to use useSearchParams in React Router v6*. [online] Available at: https://stackoverflow.com/questions/70031839 [Accessed 14 April 2026].
+
+Stack Overflow (2024). *Module has no default export error in TypeScript React component*. [online] Available at: https://stackoverflow.com/questions/39801643 [Accessed 15 April 2026].
+
+Stack Overflow (2024). *Cannot find module or its corresponding type declarations in Vite React TypeScript*. [online] Available at: https://stackoverflow.com/questions/40382842 [Accessed 17 April 2026].
+
+Stack Overflow (2024). *Fetch API returns undefined when trying to access nested JSON object property*. [online] Available at: https://stackoverflow.com/questions/37555031 [Accessed 12 April 2026].
+
+Stack Overflow (2024). *React state not updating immediately after setState call inside useEffect*. [online] Available at: https://stackoverflow.com/questions/54069253 [Accessed 13 April 2026].
+
+Stack Overflow (2024). *How to get query string parameters from URL in React Router v6*. [online] Available at: https://stackoverflow.com/questions/65865518 [Accessed 14 April 2026].
+
+Stack Overflow (2024). *How to pass query parameters in URL and read them with useSearchParams hook*. [online] Available at: https://stackoverflow.com/questions/68911432 [Accessed 14 April 2026].
+
+Stack Overflow (2024). *Query parameter "q" undefined when fetching API with dynamic search term in React*. [online] Available at: https://stackoverflow.com/questions/58701538 [Accessed 16 April 2026].
+
